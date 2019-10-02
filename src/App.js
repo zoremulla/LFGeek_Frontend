@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// import { withRouter } from "react-router";
+import { observer } from "react";
+
+// Components
+import Sidebar from "./Sidebar";
+import Loading from "./Loading";
+
+// Store
+import AuthStore from "./stores/authStore";
 
 function App() {
+  const getView = () => {
+    if (AuthStore.loading) {
+      return <Loading />;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app" className="container-fluid">
+      <div className="row">
+        <div className="col-2">
+          <Sidebar />
+        </div>
+        <div className="content col-10">{getView()}</div>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default observer(App);
