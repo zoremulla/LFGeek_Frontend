@@ -10,6 +10,9 @@ import Loading from "./Loading";
 // Forms
 import LoginForm from "./forms/loginForm";
 
+// Modals
+import AuthModal from "./modals/authStoreModal";
+
 // Store
 import AuthStore from "./stores/authStore";
 
@@ -25,7 +28,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Redirect exact from="/" to="/GamesList" />
-            <Route path="/login" component={LoginForm} />
+            <Route path="/login/" component={AuthModal} />
           </Switch>
         </BrowserRouter>
       );

@@ -1,87 +1,47 @@
-import AuthForm, { STATE_LOGIN } from "components/AuthForm";
-import Page from "components/Page";
-import React from "react";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Col,
-  Modal,
-  ModalBody,
-  Row
-} from "reactstrap";
+import React, { Component } from "react";
+import Modal from "react-awesome-modal";
 
-class AuthModalPage extends React.Component {
-  state = {
-    show: false,
-    authState: STATE_LOGIN
-  };
+export default class AuthModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
+  }
 
-  toggle = () => {
+  openModal() {
     this.setState({
-      show: !this.state.show
+      visible: true
     });
-  };
+  }
 
-  handleAuthState = authState => {
+  closeModal() {
     this.setState({
-      authState
+      visible: false
     });
-  };
+  }
 
   render() {
-    const externalCloseBtn = (
-      <button
-        className="close"
-        style={{
-          position: "absolute",
-          top: "15px",
-          right: "20px",
-          fontSize: "3rem"
-        }}
-        onClick={this.toggle}
-      >
-        &times;
-      </button>
-    );
-
     return (
-      <Page
-        title="Login Modal"
-        breadcrumbs={[{ name: "login modal", active: true }]}
-      >
-        <Row>
-          <Col md="12" sm="12" xs="12">
-            <Card>
-              <CardHeader>Login Modal Example</CardHeader>
-              <CardBody>
-                <Button color="danger" onClick={this.toggle}>
-                  Click to Login
-                </Button>
-                <Modal
-                  isOpen={this.state.show}
-                  toggle={this.toggle}
-                  size="sm"
-                  backdrop="static"
-                  backdropClassName="modal-backdrop-light"
-                  external={externalCloseBtn}
-                  centered
-                >
-                  <ModalBody>
-                    <AuthForm
-                      authState={this.state.authState}
-                      onChangeAuthState={this.handleAuthState}
-                    />
-                  </ModalBody>
-                </Modal>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </Page>
+      <section>
+        {/* <h1>Sign In</h1> */}
+        <input type="button" value="Sign In" onClick={() => this.openModal()} />
+        <Modal
+          visible={this.state.visible}
+          width="400"
+          height="300"
+          effect="fadeInUp"
+          onClickAway={() => this.closeModal()}
+        >
+          <div>
+            <h1>Authentication</h1>
+            <p>Some Contents</p>
+            <a href="javascript:void(0);" onClick={() => this.closeModal()}>
+              Close
+            </a>
+          </div>
+        </Modal>
+      </section>
     );
   }
 }
-
-export default AuthModalPage;
