@@ -12,7 +12,7 @@ export default Sidebar => {
       </a>
 
       <a className="menu-item" href="/login/">
-        Games
+        Profile
       </a>
 
       <a className="menu-item" href="/">
@@ -20,7 +20,7 @@ export default Sidebar => {
       </a>
 
       <a className="menu-item" href="/">
-        Profile
+        Games
       </a>
 
       <a className="menu-item" href="/">

@@ -3,30 +3,29 @@ import { Link } from "react-router-dom";
 import authStore from "../stores/authStore";
 import { observer } from "mobx-react";
 
-// Styling
-import "./LoginForm.css";
-
-class LoginForm extends Component {
+class SignupForm extends Component {
   state = {
     username: "",
+    email: "",
     password: ""
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    authStore.signup(this.state, this.props.history);
+  };
   componentDidMount() {
     if (authStore.user) {
       this.props.history.push("/");
     }
   }
-  handleSubmit = event => {
-    event.preventDefault();
-    authStore.login(this.state, this.props.history);
-  };
-
   render() {
-    const { username, password } = this.state;
+    const { username, email, password } = this.state;
+
     return (
       <div className="col-6 mx-auto">
         <div className="card my-5">
@@ -45,6 +44,18 @@ class LoginForm extends Component {
                 />
               </div>
               <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  value={email}
+                  name="email"
+                  placeholder="Email"
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
@@ -58,10 +69,10 @@ class LoginForm extends Component {
               </div>
 
               <button type="submit" className="btn btn-primary">
-                LoginForm
+                Sign up
               </button>
-              <Link to="/signup/" className="btn btn-link my-2 my-sm-0">
-                Signup for an account
+              <Link to="/login" className="btn btn-link my-2 my-sm-0">
+                I already have an account
               </Link>
             </form>
           </div>
@@ -71,4 +82,4 @@ class LoginForm extends Component {
   }
 }
 
-export default observer(LoginForm);
+export default observer(SignupForm);
