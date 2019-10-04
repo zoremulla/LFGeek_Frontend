@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import authStore from "../stores/authStore";
 import { observer } from "mobx-react";
 
+import "./LoginForm.css";
+
 class SignupForm extends Component {
   state = {
     username: "",
@@ -29,7 +31,7 @@ class SignupForm extends Component {
     return (
       <div className="col-6 mx-auto">
         <div className="card my-5">
-          <div className="card-body">
+          <div className="body">
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label htmlFor="username">Username</label>
@@ -71,7 +73,7 @@ class SignupForm extends Component {
               <button type="submit" className="btn btn-primary">
                 Sign up
               </button>
-              <Link to="/login" className="btn btn-link my-2 my-sm-0">
+              <Link to="/login/" className="btn btn-link my-2 my-sm-0">
                 I already have an account
               </Link>
             </form>
