@@ -14,7 +14,7 @@ function App() {
     if (AuthStore.loading) {
       return <Loading />;
     } else {
-      // <Switch>{/* <Route path="/" component={}/> */}</Switch>;
+      <Switch>{/* <Route path="/" component={}/> */}</Switch>;
       return;
     }
   };
