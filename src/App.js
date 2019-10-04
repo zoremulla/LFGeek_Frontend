@@ -6,6 +6,7 @@ import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 // Components
 import Sidebar from "./Sidebar";
 import Loading from "./Loading";
+import GamesList from "./stores/GamesList";
 
 // Forms
 import LoginForm from "./forms/loginForm";
@@ -19,6 +20,7 @@ import AuthStore from "./stores/authStore";
 
 // Styling
 import "./App.css";
+import gamesStore from "./stores/gamesStore";
 import "./forms/LoginForm.css";
 
 function App() {
@@ -29,7 +31,9 @@ function App() {
       return (
         <BrowserRouter>
           <Switch>
-            <Redirect exact from="/" to="/gameslist/" />
+            <Redirect exact from="/" to="/GamesList" />
+           
+            <Route path="/GamesList/" component={GamesList} />
             <Route path="/login/" component={LoginForm} />
             <Route path="/signup/" component={SignupForm} />
           </Switch>
