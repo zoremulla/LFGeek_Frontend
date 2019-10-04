@@ -9,16 +9,17 @@ import Loading from "./Loading";
 
 // Forms
 import LoginForm from "./forms/loginForm";
+import SignupForm from "./forms/SignupForm";
 
 // Modals
-import AuthModal from "./modals/authStoreModal";
+// import AuthModal from "./modals/authStoreModal";
 
 // Store
 import AuthStore from "./stores/authStore";
 
 // Styling
 import "./App.css";
-import SignupForm from "./forms/SignupForm";
+import "./forms/LoginForm.css";
 
 function App() {
   const getView = () => {
@@ -28,7 +29,7 @@ function App() {
       return (
         <BrowserRouter>
           <Switch>
-            <Redirect exact from="/" to="/GamesList/" />
+            <Redirect exact from="/" to="/gameslist/" />
             <Route path="/login/" component={LoginForm} />
             <Route path="/signup/" component={SignupForm} />
           </Switch>
