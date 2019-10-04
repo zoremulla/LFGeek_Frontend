@@ -1,38 +1,36 @@
 import React from "react";
-import { Header, Icon, Image, Menu, Segment, Sidebar } from "semantic-ui-react";
+import { NavLink, withRouter } from "react-router-dom";
+import Authstore from "./stores/authStore";
+import { observer } from "mobx-react";
+// Logo
+import logo from "./assets/img/sidebar/sidebar-1.jpg";
 
-const SidebarExampleVisible = () => (
-  <Sidebar.Pushable as={Segment}>
-    <Sidebar
-      as={Menu}
-      animation="overlay"
-      icon="labeled"
-      inverted
-      vertical
-      visible
-      width="thin"
-    >
-      <Menu.Item as="a">
-        <Icon name="home" />
-        Home
-      </Menu.Item>
-      <Menu.Item as="a">
-        <Icon name="gamepad" />
-        Games
-      </Menu.Item>
-      <Menu.Item as="a">
-        <Icon name="camera" />
-        Channels
-      </Menu.Item>
-    </Sidebar>
+const Sidebar = () => {
+  return (
+    <div id="sidebar">
+      <img src={logo} className="logo" alt="the index logo" />
+      <section>
+        {Authstore.user ? (
+          <h4 className="menu-item">
+            {/* <NavLink onClick={Authstore.logout} to="#"> */}
+            LOGOUT
+            {/* </NavLink> */}
+          </h4>
+        ) : (
+          <div>
+            <h4 className="menu-item">
+              {/* <NavLink to="/login">LOGIN</NavLink> */}
+              login
+            </h4>
+            <h4 className="menu-item">
+              {/* <NavLink to="/signup">SIGNUP</NavLink> */}
+              signup
+            </h4>
+          </div>
+        )}
+      </section>
+    </div>
+  );
+};
 
-    <Sidebar.Pusher>
-      <Segment basic>
-        <Header as="h3">Application Content</Header>
-        <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
-      </Segment>
-    </Sidebar.Pusher>
-  </Sidebar.Pushable>
-);
-
-export default SidebarExampleVisible;
+export default observer(Sidebar);
