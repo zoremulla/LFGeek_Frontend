@@ -21,7 +21,6 @@ import AuthStore from "./stores/authStore";
 // Styling
 import "./App.css";
 import gamesStore from "./stores/gamesStore";
-import "./forms/LoginForm.css";
 
 function App() {
   const getView = () => {
@@ -32,7 +31,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Redirect exact from="/" to="/GamesList" />
-           
+
             <Route path="/GamesList/" component={GamesList} />
             <Route path="/login/" component={LoginForm} />
             <Route path="/signup/" component={SignupForm} />
@@ -46,6 +45,7 @@ function App() {
     <div id="App">
       <Sidebar />
       <div id="page-wrap">
+        <img src="" />
         <h1>LFGeek</h1>
         <h2>Tired of playing alone?</h2>
         <div className="content col-10">{getView()}</div>
