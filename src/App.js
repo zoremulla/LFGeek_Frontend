@@ -1,4 +1,5 @@
 import React from "react";
+
 // import { withRouter } from "react-router";
 // import { observer } from "react";
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
@@ -32,6 +33,7 @@ function App() {
   };
 
   return (
+
     <div id="App">
       <Sidebar />
       <div id="page-wrap">
@@ -43,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(observer(App));
