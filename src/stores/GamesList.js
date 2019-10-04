@@ -3,20 +3,20 @@ import { observer } from "mobx-react";
 
 // Components
 import GameCard from "./GameCard";
-import SearchBar from "./SearchBar";
+import SearchBar from "../SearchBar";
 
 // Store
-import gameStore from "./stores/gameStore";
+import gamesStore from "./gamesStore";
 
 const GamesList = () => {
-  const GameCards = gameStore.filteredGames.map(game => (
+  const GameCards = gamesStore.filteredGames.map(game => (
     <GameCard key={game.id} game={game} />
   ));
 
   return (
     <div>
       <h3>Games</h3>
-      <SearchBar store={gameStore} />
+      <SearchBar store={gamesStore} />
       <div className="row">{GameCards}</div>
     </div>
   );

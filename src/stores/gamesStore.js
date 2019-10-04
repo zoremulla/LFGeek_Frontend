@@ -1,16 +1,16 @@
 import { decorate, observable, computed } from "mobx";
-import axios from "axios";
-
-const instance = axios.create({
-  baseURL: "https://the-index-api.herokuapp.com"
-});
+// import axios from "axios";
+import data from "./data";
+// const instance = axios.create({
+//   baseURL: "https://the-index-api.herokuapp.com"
+// });
 
 function errToArray(err) {
   return Object.keys(err).map(key => `${key}: ${err[key]}`);
 }
 
 class GamesStore {
-  games = [];
+  games = [...data];
 
   loading = true;
 
@@ -18,16 +18,16 @@ class GamesStore {
 
   errors = null;
 
-  fetchGames = async () => {
-    try {
-      const res = await instance.get("/api/games/");
-      const games = res.data;
-      this.games = games;
-      this.loading = false;
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  // fetchGames = async () => {
+  //   try {
+  //     const res = await instance.get("/api/games/");
+  //     const games = res.data;
+  //     this.games = games;
+  //     this.loading = false;
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   // addAuthor = async newAuthor => {
   //   try {
@@ -41,14 +41,12 @@ class GamesStore {
   // };
 
   get filteredGames() {
-    return this.games.filter(author =>
-      `${author.first_name} ${author.last_name}`
-        .toLowerCase()
-        .includes(this.query.toLowerCase())
+    return this.games.filter(game =>
+      `${game.name}`.toLowerCase().includes(this.query.toLowerCase())
     );
   }
 
-  getGameById = id => this.games.find(author => +author.id === +id);
+  getGameById = id => this.games.find(game => +game.id === +id);
 }
 
 decorate(GamesStore, {
@@ -60,6 +58,6 @@ decorate(GamesStore, {
 });
 
 const gamesStore = new GamesStore();
-gamesStore.fetchGames();
+// gamesStore.fetchGames();
 
 export default gamesStore;
