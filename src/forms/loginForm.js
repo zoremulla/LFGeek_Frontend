@@ -1,71 +1,75 @@
-import React from "react";
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBBtn,
-  MDBIcon
-} from "mdbreact";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import authStore from "../stores/authStore";
+import { observer } from "mobx-react";
 
-//Styles
-// import "./LoginForm.css";
+// Styling
+import "./LoginForm.css";
+import { Container } from "semantic-ui-react";
 
-const LoginForm = () => {
-  return (
-    <body>
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol md="6">
-            <form>
-              <p className="h5 text-center mb-4">Sign up</p>
-              <div className="grey-text">
-                <MDBInput
-                  label="Your name"
-                  icon="user"
-                  group
+class LoginForm extends Component {
+  state = {
+    username: "",
+    password: ""
+  };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+  componentDidMount() {
+    if (authStore.user) {
+      this.props.history.push("/");
+    }
+  }
+  handleSubmit = event => {
+    event.preventDefault();
+    authStore.login(this.state, this.props.history);
+  };
+
+  render() {
+    const { username, password } = this.state;
+    return (
+      <Container className="container">
+        <div className="card">
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <label>Username</label>
+                <input
+                  className="input-group-prepend span"
                   type="text"
-                  validate
-                  error="wrong"
-                  success="right"
+                  id="username"
+                  value={username}
+                  name="username"
+                  placeholder="Username"
+                  onChange={this.handleChange}
                 />
-                <MDBInput
-                  label="Your email"
-                  icon="envelope"
-                  group
-                  type="email"
-                  validate
-                  error="wrong"
-                  success="right"
-                />
-                <MDBInput
-                  label="Confirm your email"
-                  icon="exclamation-triangle"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                />
-                <MDBInput
-                  label="Your password"
-                  icon="lock"
-                  group
+              </div>
+              <div>
+                <label>Password</label>
+                <input
                   type="password"
-                  validate
+                  className="form-control"
+                  id="password"
+                  value={password}
+                  name="password"
+                  placeholder="Password"
+                  onChange={this.handleChange}
                 />
               </div>
-              <div className="text-center">
-                <MDBBtn color="primary">Register</MDBBtn>
-              </div>
-            </form>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </body>
-  );
-};
 
-export default LoginForm;
+              <button type="submit" className="login_btn login_btn:hover">
+                LoginForm
+              </button>
+              <Link to="/signup/" className="links">
+                Signup for an account
+              </Link>
+            </form>
+          </div>
+        </div>
+      </Container>
+    );
+  }
+}
+
+export default observer(LoginForm);

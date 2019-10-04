@@ -12,18 +12,18 @@ export default Sidebar => {
       </a>
 
       <a className="menu-item" href="/login/">
-        Games
-      </a>
-
-      <a className="menu-item" href="/">
-        Find a group
-      </a>
-
-      <a className="menu-item" href="/">
         Profile
       </a>
 
-      <a className="menu-item" href="/">
+      <a className="menu-item" href="/playerlist/">
+        Find a group
+      </a>
+
+      <a className="menu-item" href="/gameslist/">
+        Games
+      </a>
+
+      <a className="menu-item" href="/about/">
         About
       </a>
     </Menu>

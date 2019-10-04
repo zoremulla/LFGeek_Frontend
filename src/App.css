@@ -34,13 +34,14 @@ body {
 #page-wrap {
   text-align: center;
   overflow: auto;
+  color: white;
 }
 
 .bm-item {
   display: inline-block;
   text-decoration: none;
   margin-bottom: 10px;
-  color: #d1d1d1;
+  color: #070000;
   transition: color 0.2s;
 }
 
@@ -57,7 +58,7 @@ body {
 }
 
 .bm-burger-bars {
-  background: #373a47;
+  background: #c4c4ca;
 }
 
 .bm-cross-button {
