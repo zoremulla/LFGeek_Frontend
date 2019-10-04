@@ -1,8 +1,8 @@
 import { decorate, observable, computed } from "mobx";
-// import axios from "axios";
+import axios from "axios";
 import data from "./data";
 // const instance = axios.create({
-//   baseURL: "https://the-index-api.herokuapp.com"
+//   baseURL: "./data"
 // });
 
 function errToArray(err) {
@@ -20,7 +20,7 @@ class GamesStore {
 
   // fetchGames = async () => {
   //   try {
-  //     const res = await instance.get("/api/games/");
+  //     const res = await instance.get("./data");
   //     const games = res.data;
   //     this.games = games;
   //     this.loading = false;

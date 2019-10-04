@@ -6,6 +6,7 @@ import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 // Components
 import Sidebar from "./Sidebar";
 import Loading from "./Loading";
+import GamesList from "./stores/GamesList";
 
 // Forms
 import LoginForm from "./forms/loginForm";
@@ -18,6 +19,7 @@ import AuthStore from "./stores/authStore";
 
 // Styling
 import "./App.css";
+import gamesStore from "./stores/gamesStore";
 
 function App() {
   const getView = () => {
@@ -29,6 +31,7 @@ function App() {
           <Switch>
             <Redirect exact from="/" to="/GamesList" />
             <Route path="/login/" component={AuthModal} />
+            <Route path="/GamesList/" component={GamesList} />
           </Switch>
         </BrowserRouter>
       );
