@@ -36,7 +36,6 @@ function App() {
   };
 
   return (
-
     <div id="App">
       <Sidebar />
       <div id="page-wrap">
@@ -48,4 +47,4 @@ function App() {
   );
 }
 
-export default withRouter(observer(App));
+export default App;
