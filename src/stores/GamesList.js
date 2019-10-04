@@ -7,19 +7,18 @@ import SearchBar from "../SearchBar";
 
 // Store
 import gamesStore from "./gamesStore";
+import games from "./data";
 
-const GamesList = () => {
-  const GameCards = gamesStore.filteredGames.map(game => (
-    <GameCard key={game.id} game={game} />
-  ));
+function GamesList() {
+  const GameCards = games.map(game => <GameCard key={game.id} game={game} />);
 
   return (
-    <div>
+    <div className="games">
       <h3>Games</h3>
       <SearchBar store={gamesStore} />
       <div className="row">{GameCards}</div>
     </div>
   );
-};
+}
 
 export default observer(GamesList);

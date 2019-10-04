@@ -13,7 +13,7 @@ const games = [
   {
     id: 2,
     name: "Overwatch",
-    genre: "First-person shooter",
+    genre: "FPS",
     developer: "Blizzard Entertainment",
     platform: ["PlayStation 4", "PC", "Xbox One", "Nintendo Switch"],
     year: 2016,
@@ -24,12 +24,12 @@ const games = [
   {
     id: 3,
     name: "Fortnite",
-    genre: "First-person shooter",
+    genre: "FPS",
     developer: "Epic Games",
     platform: ["PlayStation 4", "PC", "Xbox One", "Nintendo Switch"],
     year: 2017,
     image:
-      "https://cdn.imgbin.com/3/13/14/imgbin-overwatch-heroes-of-the-storm-amazon-com-hoodie-logo-overwatch-arDeAbcqHjtGDVnFz0NFs1kNA.jpg",
+      "http://brutalgamer.com/wp-content/uploads/2014/07/Fortnight-New-Logo.png",
     description: "Feeding Noobs.."
   },
   {
