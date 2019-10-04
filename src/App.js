@@ -18,6 +18,7 @@ import AuthStore from "./stores/authStore";
 
 // Styling
 import "./App.css";
+import SignupForm from "./forms/SignupForm";
 
 function App() {
   const getView = () => {
@@ -27,8 +28,9 @@ function App() {
       return (
         <BrowserRouter>
           <Switch>
-            <Redirect exact from="/" to="/GamesList" />
-            <Route path="/login/" component={AuthModal} />
+            <Redirect exact from="/" to="/GamesList/" />
+            <Route path="/login/" component={LoginForm} />
+            <Route path="/signup/" component={SignupForm} />
           </Switch>
         </BrowserRouter>
       );
