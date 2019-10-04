@@ -1,30 +1,42 @@
 import React from "react";
 // import { withRouter } from "react-router";
-import { observer } from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+// import { observer } from "react";
+import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 // Components
 import Sidebar from "./Sidebar";
 import Loading from "./Loading";
 
+// Forms
+import LoginForm from "./forms/loginForm";
+
 // Store
 import AuthStore from "./stores/authStore";
+
+// Styling
+import "./App.css";
 
 function App() {
   const getView = () => {
     if (AuthStore.loading) {
       return <Loading />;
     } else {
-      <Switch>{/* <Route path="/" component={}/> */}</Switch>;
-      return;
+      return (
+        <BrowserRouter>
+          <Switch>
+            <Redirect exact from="/" to="/GamesList" />
+            <Route path="/login" component={LoginForm} />
+          </Switch>
+        </BrowserRouter>
+      );
     }
   };
 
   return (
-    <div id="app" className="container-fluid">
-      <div className="row">
-        <div className="col-2">
-          <Sidebar />
-        </div>
+    <div id="App">
+      <Sidebar />
+      <div id="page-wrap">
+        <h1>LFGeek</h1>
+        <h2>Tired of playing alone?</h2>
         <div className="content col-10">{getView()}</div>
       </div>
     </div>

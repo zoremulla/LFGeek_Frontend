@@ -1,36 +1,31 @@
 import React from "react";
-import { NavLink, withRouter } from "react-router-dom";
-import Authstore from "./stores/authStore";
-import { observer } from "mobx-react";
-// Logo
-import logo from "./assets/img/sidebar/sidebar-1.jpg";
+import { slide as Menu } from "react-burger-menu";
+import { Sidebar } from "semantic-ui-react";
 
-const Sidebar = () => {
+import LoginForm from "./forms/loginForm";
+
+export default Sidebar => {
   return (
-    <div id="sidebar">
-      <img src={logo} className="logo" alt="the index logo" />
-      <section>
-        {Authstore.user ? (
-          <h4 className="menu-item">
-            {/* <NavLink onClick={Authstore.logout} to="#"> */}
-            LOGOUT
-            {/* </NavLink> */}
-          </h4>
-        ) : (
-          <div>
-            <h4 className="menu-item">
-              {/* <NavLink to="/login">LOGIN</NavLink> */}
-              login
-            </h4>
-            <h4 className="menu-item">
-              {/* <NavLink to="/signup">SIGNUP</NavLink> */}
-              signup
-            </h4>
-          </div>
-        )}
-      </section>
-    </div>
+    <Menu>
+      <a className="menu-item" href="/">
+        Home
+      </a>
+
+      <a className="menu-item" href="LoginForm">
+        Games
+      </a>
+
+      <a className="menu-item" href="/">
+        Find a group
+      </a>
+
+      <a className="menu-item" href="/">
+        Profile
+      </a>
+
+      <a className="menu-item" href="/">
+        About
+      </a>
+    </Menu>
   );
 };
-
-export default observer(Sidebar);
