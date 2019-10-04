@@ -1,40 +1,44 @@
 import React from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { observer } from "mobx-react";
 
+// import { withRouter } from "react-router";
+// import { observer } from "react";
+import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 // Components
 import Sidebar from "./Sidebar";
 import Loading from "./Loading";
-import AuthorsList from "./GamesList";
-import AuthorDetail from "./AuthorDetail";
-import BookList from "./BookList";
+
+// Forms
+import LoginForm from "./forms/loginForm";
 
 // Store
-import authorStore from "./stores/gamesStore";
-import bookStore from "./stores/bookStore";
+import AuthStore from "./stores/authStore";
+
+// Styling
+import "./App.css";
 
 function App() {
   const getView = () => {
-    if (authorStore.loading || bookStore.loading) {
+    if (AuthStore.loading) {
       return <Loading />;
     } else {
       return (
-        <Switch>
-          <Redirect exact from="/" to="/authors" />
-          <Route path="/authors/:authorID" component={AuthorDetail} />
-          <Route path="/authors/" component={AuthorsList} />
-          <Route path="/books/:bookColor?" component={BookList} />
-        </Switch>
+        <BrowserRouter>
+          <Switch>
+            <Redirect exact from="/" to="/GamesList" />
+            <Route path="/login" component={LoginForm} />
+          </Switch>
+        </BrowserRouter>
       );
     }
   };
 
   return (
-    <div id="app" className="container-fluid">
-      <div className="row">
-        <div className="col-2">
-          <Sidebar />
-        </div>
+
+    <div id="App">
+      <Sidebar />
+      <div id="page-wrap">
+        <h1>LFGeek</h1>
+        <h2>Tired of playing alone?</h2>
         <div className="content col-10">{getView()}</div>
       </div>
     </div>
