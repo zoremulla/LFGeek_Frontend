@@ -3,10 +3,10 @@ import { observer } from "mobx-react";
 
 // Components
 import GameCard from "./GameCard";
-import SearchBar from "../SearchBar";
+// import SearchBar from "../SearchBar";
 
 // Store
-import gamesStore from "./gamesStore";
+// import gamesStore from "./gamesStore";
 import games from "./data";
 
 function GamesList() {
@@ -15,8 +15,8 @@ function GamesList() {
   return (
     <div className="games">
       <h3>Games</h3>
-      <SearchBar store={gamesStore} />
-      <div className="row">{GameCards}</div>
+      {/* <SearchBar store={gamesStore} /> */}
+      <div class="card-deck">{GameCards}</div>
     </div>
   );
 }

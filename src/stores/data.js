@@ -15,7 +15,7 @@ const games = [
     name: "Overwatch",
     genre: "FPS",
     developer: "Blizzard Entertainment",
-    platform: ["PlayStation 4", "PC", "Xbox One", "Nintendo Switch"],
+    platform: ["PlayStation 4 ", "PC ", "Xbox One ", "Nintendo Switch "],
     year: 2016,
     image:
       "https://cdn.imgbin.com/3/13/14/imgbin-overwatch-heroes-of-the-storm-amazon-com-hoodie-logo-overwatch-arDeAbcqHjtGDVnFz0NFs1kNA.jpg",
@@ -26,7 +26,7 @@ const games = [
     name: "Fortnite",
     genre: "FPS",
     developer: "Epic Games",
-    platform: ["PlayStation 4", "PC", "Xbox One", "Nintendo Switch"],
+    platform: ["PlayStation 4 ", "PC ", "Xbox One ", "Nintendo Switch "],
     year: 2017,
     image:
       "http://brutalgamer.com/wp-content/uploads/2014/07/Fortnight-New-Logo.png",
