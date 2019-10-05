@@ -20,7 +20,8 @@ import AuthStore from "./stores/authStore";
 
 // Styling
 import "./App.css";
-import gamesStore from "./stores/gamesStore";
+// import gamesStore from "./stores/gamesStore";
+import UserProfile from "./UserProfile";
 
 function App() {
   const getView = () => {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/GamesList/" component={GamesList} />
             <Route path="/login/" component={LoginForm} />
             <Route path="/signup/" component={SignupForm} />
+            <Route path="/profile/" component={UserProfile} />
           </Switch>
         </BrowserRouter>
       );
