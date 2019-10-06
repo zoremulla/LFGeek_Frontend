@@ -6,7 +6,8 @@ import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 // Components
 import Sidebar from "./Sidebar";
 import Loading from "./Loading";
-import GamesList from "./stores/GamesList";
+import GamesList from "./components/GameList/GamesList";
+import ClanList from "../src/components/GameDetail/ClanList";
 
 // Forms
 import LoginForm from "./forms/loginForm";
@@ -32,10 +33,11 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Redirect exact from="/" to="/GamesList" />
-           
+
             <Route path="/GamesList/" component={GamesList} />
             <Route path="/login/" component={LoginForm} />
             <Route path="/signup/" component={SignupForm} />
+            <Route path="/ClanList/" component={ClanList} />
           </Switch>
         </BrowserRouter>
       );

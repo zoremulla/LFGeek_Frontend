@@ -7,7 +7,7 @@ import LoginForm from "./forms/loginForm";
 export default Sidebar => {
   return (
     <Menu>
-      <a className="menu-item" href="/GamesList/">
+      <a className="menu-item" href="/ClanList/">
         Home
       </a>
 
