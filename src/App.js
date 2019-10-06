@@ -1,45 +1,22 @@
 import React from "react";
 
-// import { withRouter } from "react-router";
-// import { observer } from "react";
-import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 // Components
 import Sidebar from "./Sidebar";
 import Loading from "./Loading";
-import GamesList from "./stores/GamesList";
-
-// Forms
-import LoginForm from "./forms/loginForm";
-import SignupForm from "./forms/SignupForm";
-
-// Modals
-// import AuthModal from "./modals/authStoreModal";
+import Router from "./components/router";
 
 // Store
 import AuthStore from "./stores/authStore";
 
 // Styling
 import "./App.css";
-// import gamesStore from "./stores/gamesStore";
-import UserProfile from "./UserProfile";
 
 function App() {
   const getView = () => {
     if (AuthStore.loading) {
       return <Loading />;
     } else {
-      return (
-        <BrowserRouter>
-          <Switch>
-            <Redirect exact from="/" to="/GamesList" />
-
-            <Route path="/GamesList/" component={GamesList} />
-            <Route path="/login/" component={LoginForm} />
-            <Route path="/signup/" component={SignupForm} />
-            <Route path="/profile/" component={UserProfile} />
-          </Switch>
-        </BrowserRouter>
-      );
+      return <Router />;
     }
   };
 

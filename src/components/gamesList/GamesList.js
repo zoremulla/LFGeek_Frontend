@@ -3,11 +3,11 @@ import { observer } from "mobx-react";
 
 // Components
 import GameCard from "./GameCard";
-import SearchBar from "../SearchBar";
+import SearchBar from "../../SearchBar";
 
 // Store
-import gamesStore from "./gamesStore";
-import games from "./data";
+import gamesStore from "../../stores/gamesStore";
+import games from "../../stores/data";
 
 function GamesList() {
   const GameCards = games.map(game => <GameCard key={game.id} game={game} />);
