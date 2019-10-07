@@ -11,7 +11,10 @@ const clans = [
     image:
       "https://www.seekpng.com/png/full/134-1346911_faze-clan-logo-png-for-kids-logo-gaming.png",
     discord: "https://discordapp.com/invite/5YyaZYM",
-    followers: 1500
+    followers: 1500,
+    alert: "",
+    platform: "",
+    region: "Europe"
   },
   {
     id: 2,
@@ -24,7 +27,10 @@ const clans = [
     image:
       "https://previews.123rf.com/images/visinkart/visinkart1908/visinkart190800016/128647295-soldier-mascot-esport-gaming-logo.jpg",
     discord: "https://discordapp.com/invite/qneTJjJ",
-    followers: 300
+    followers: 300,
+    alert: "",
+    platform: "",
+    region: "Middle East"
   },
   {
     id: 3,
@@ -36,7 +42,10 @@ const clans = [
     created: "07/01/2009",
     image: "https://pbs.twimg.com/media/DY5419kWAAIeQOm.jpg",
     discord: "https://discord.gg/AdnJXrc",
-    followers: 120
+    followers: 120,
+    alert: "",
+    platforms: "",
+    region: "Europe"
   },
   {
     id: 4,
@@ -49,7 +58,10 @@ const clans = [
     image:
       "https://cdn6.f-cdn.com/contestentries/142163/13636616/54c28ec1b0186_thumb900.jpg",
     discord: "https://discord.gg/TwcgD6K",
-    followers: 1500
+    followers: 1500,
+    alert: "",
+    platforms: "",
+    region: "US"
   }
 ];
 

@@ -45,6 +45,10 @@ body {
   transition: color 0.2s;
 }
 
+.img {
+  background-size: contain;
+}
+
 .bm-item:hover {
   color: white;
 }

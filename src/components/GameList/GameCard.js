@@ -6,7 +6,7 @@ function GameCard(props) {
   const gameName = `${game.name}`;
   return (
     <div className="card">
-      <img src={game.image} class="card-img-top" alt="{gameName}" />
+      <img src={game.image} className="card-img-top" alt="{gameName}" />
       <div className="card-body">
         <h5 className="card-title">{gameName}</h5>
         <p className="card-text">{game.genre}</p>

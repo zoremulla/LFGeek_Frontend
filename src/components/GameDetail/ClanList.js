@@ -16,7 +16,7 @@ function ClansList() {
     <div className="clans">
       <h3>Clans LFG</h3>
       {/* <SearchBar store={gamesStore} /> */}
-      <div class="card-deck">{ClanCards}</div>
+      <div className="card-deck">{ClanCards}</div>
     </div>
   );
 }

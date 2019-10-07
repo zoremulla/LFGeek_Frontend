@@ -16,7 +16,7 @@ function GamesList() {
     <div className="games">
       <h3>Games</h3>
       {/* <SearchBar store={gamesStore} /> */}
-      <div class="card-deck">{GameCards}</div>
+      <div className="card-deck">{GameCards}</div>
     </div>
   );
 }

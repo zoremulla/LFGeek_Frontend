@@ -2,8 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 // Components
-import ClanCard from "./ClanCard";
-import
+import ClanCard from "./PlayerCard";
 // import SearchBar from "../SearchBar";
 
 // Store
