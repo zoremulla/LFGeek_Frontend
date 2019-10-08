@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import authStore from "../stores/authStore";
 import { observer } from "mobx-react";
 
-class Signup extends Component {
+class LoginForm extends Component {
   state = {
     username: "",
     password: ""
@@ -17,13 +17,14 @@ class Signup extends Component {
     event.preventDefault();
     authStore.login(this.state, this.props.history);
   };
-  componentDidMount() {
-    if (authStore.user) {
-      this.props.history.push("/gamelist");
-    }
-  }
+  // componentDidMount() {
+  //   if (authStore.user) {
+  //     this.props.history.push("/profile/");
+  //   }
+  // }
   render() {
     const { username, password } = this.state;
+    if (authStore.user) return <Redirect to="/profile/" />;
 
     return (
       <div className="col-6 mx-auto">
@@ -58,7 +59,7 @@ class Signup extends Component {
               <button type="submit" className="btn btn-primary">
                 Login
               </button>
-              <Link to="/register" className="btn btn-link my-2 my-sm-0">
+              <Link to="/register/" className="btn btn-link my-2 my-sm-0">
                 Don't have an account?
               </Link>
             </form>
@@ -69,4 +70,4 @@ class Signup extends Component {
   }
 }
 
-export default observer(Signup);
+export default observer(LoginForm);

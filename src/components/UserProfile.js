@@ -1,24 +1,27 @@
 import React, { Component } from "react";
-import LoginForm from "../forms/loginForm";
-import authStore from "../stores/authStore";
-import profileStore from "../stores/profileStore";
+import { observer } from "mobx-react";
 
-// Components
+// Stores
+import authStore from "./stores/authStore";
 
 class UserProfile extends Component {
-  componentDidMount = () => {
-    if (authStore.user) {
-      {
-        profileStore.fetchProfile();
-      }
-    }
-  };
-
   render() {
-    if (!authStore.user) return <LoginForm />;
-    // if (!this.props.user) return <Redirect to="/login" />;
-    return;
+    const profileID = this.props.match.params.profileID;
+    const profile = authStore.getProfileById(profileID);
+
+    return (
+      <div className="profile">
+        <div>
+          <h3>{profile.user}</h3>
+          <img
+            src={profile.imageUrl}
+            className="img-thumbnail img-fluid"
+            alt={profile.user}
+          />
+        </div>
+      </div>
+    );
   }
 }
 
-export default UserProfile;
+export default observer(UserProfile);
