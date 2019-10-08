@@ -1,10 +1,7 @@
-import { decorate, observable, computed } from "mobx";
+import { decorate, observable } from "mobx";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-
-const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/"
-});
+import { instance } from "./instance";
 
 class AuthStore {
   user = null;
@@ -24,7 +21,7 @@ class AuthStore {
   signup = async (userData, history) => {
     try {
       await instance.post("/register/", userData);
-      await history.replace("/gamelist/");
+      history.replace("/gamelist/");
     } catch (err) {
       console.error(err.response.data);
     }
