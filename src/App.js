@@ -6,7 +6,8 @@ import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 // Components
 import Sidebar from "./Sidebar";
 import Loading from "./Loading";
-import GamesList from "./stores/GamesList";
+import GamesList from "./components/GameList/GamesList";
+import ClanList from "../src/components/GameDetail/ClanList";
 
 // Forms
 import LoginForm from "./forms/loginForm";
@@ -36,7 +37,11 @@ function App() {
             <Route path="/GamesList/" component={GamesList} />
             <Route path="/login/" component={LoginForm} />
             <Route path="/signup/" component={SignupForm} />
+<<<<<<< HEAD
+            <Route path="/ClanList/" component={ClanList} />
+=======
             <Route path="/profile/" component={UserProfile} />
+>>>>>>> master
           </Switch>
         </BrowserRouter>
       );
