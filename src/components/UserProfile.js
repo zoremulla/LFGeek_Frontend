@@ -3,11 +3,12 @@ import { observer } from "mobx-react";
 
 // Stores
 import authStore from "../stores/authStore";
+import profileStore from "../stores/profileStore";
 
 class UserProfile extends Component {
   render() {
     const profileID = this.props.match.params.profileID;
-    const profile = authStore.getProfileById(profileID);
+    const profile = profileStore.getProfileById(profileID);
 
     return (
       <div className="profile">
