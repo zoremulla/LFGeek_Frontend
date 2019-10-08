@@ -94,7 +94,11 @@ class Signup extends Component {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={this.handleSubmit}
+              >
                 Signup
               </button>
               <Link to="/login" className="btn btn-link my-2 my-sm-0">
