@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     backgroundImage:
-      "url(http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg)",
+      "url(https://www.sccpre.cat/mypng/full/0-5258_accidental-geek-logo-geek-logo-transparent.png)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center"
