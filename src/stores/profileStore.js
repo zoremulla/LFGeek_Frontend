@@ -2,7 +2,7 @@ import { instance } from "./instance";
 import { decorate, observable } from "mobx";
 
 class ProfileStore {
-  profile = "";
+  profiles = "";
   loading = true;
 
   fetchProfile = async () => {
@@ -15,6 +15,10 @@ class ProfileStore {
       console.error(err);
     }
   };
+
+  getProfileById(id) {
+    return this.profiles.find(profile => +profile.id === +id);
+  }
 }
 
 // username = () => {

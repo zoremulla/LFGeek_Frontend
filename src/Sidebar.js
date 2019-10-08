@@ -8,7 +8,7 @@ export default Sidebar => {
         Home
       </a>
 
-      <a className="menu-item" href="/login/">
+      <a className="menu-item" href="/profile/">
         Profile
       </a>
 
