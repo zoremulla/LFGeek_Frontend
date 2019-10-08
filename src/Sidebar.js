@@ -7,7 +7,7 @@ import LoginForm from "./forms/loginForm";
 export default Sidebar => {
   return (
     <Menu>
-      <a className="menu-item" href="/ClanList/">
+      <a className="menu-item" href="/gameslist/">
         Home
       </a>
 
@@ -19,8 +19,8 @@ export default Sidebar => {
         Find a group
       </a>
 
-      <a className="menu-item" href="/gameslist/">
-        Games
+      <a className="menu-item" href="/ClanList/">
+        Clans
       </a>
 
       <a className="menu-item" href="/about/">
