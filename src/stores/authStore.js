@@ -3,7 +3,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 
 const instance = axios.create({
-  baseURL: "Faker.js"
+  baseURL: "http://127.0.0.1:8000/"
 });
 
 class AuthStore {
@@ -23,8 +23,8 @@ class AuthStore {
 
   signup = async (userData, history) => {
     try {
-      await instance.post("/signup/", userData);
-      await history.replace("/");
+      await instance.post("/register/", userData);
+      await history.replace("/gamelist/");
     } catch (err) {
       console.error(err.response.data);
     }

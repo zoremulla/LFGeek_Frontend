@@ -7,14 +7,9 @@ const games = [
     platform: "PC",
     year: 2015,
     image:
-<<<<<<< HEAD:src/components/GameList/data.js
       "https://cdn.imgbin.com/7/25/25/imgbin-heroes-of-the-storm-logo-brand-car-font-logo-heroes-of-the-storm-JZeLRHwTFji1x65V2DnXMD02T.jpg",
     description: "Feeding Noobs..",
     followers: 1500
-=======
-      "https://g2e-gamers2mediasl.netdna-ssl.com/wp-content/uploads/2015/03/heroes-of-the-storm-wallpaper-1024x436.jpg",
-    description: "Feeding Noobs.."
->>>>>>> master:src/stores/data.js
   },
   {
     id: 2,

@@ -34,11 +34,7 @@ body {
 #page-wrap {
   text-align: center;
   overflow: auto;
-<<<<<<< HEAD
   color: black;
-=======
-  color: rgb(2, 2, 2);
->>>>>>> master
 }
 
 .bm-item {
