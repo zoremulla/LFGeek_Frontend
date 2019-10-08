@@ -97,7 +97,7 @@ class Signup extends Component {
               <button
                 type="submit"
                 className="btn btn-primary"
-                onClick={() => this.handleSubmit(this.state)}
+                // onClick={() => this.handleSubmit(this.state)}
               >
                 Signup
               </button>
