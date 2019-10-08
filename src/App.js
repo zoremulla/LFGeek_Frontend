@@ -6,14 +6,14 @@ import Loading from "./Loading";
 import Router from "./components/router";
 
 // Store
-import AuthStore from "./stores/authStore";
+import authStore from "./stores/authStore";
 
 // Styling
 import "./App.css";
 
 function App() {
   const getView = () => {
-    if (AuthStore.loading) {
+    if (authStore.loading) {
       return <Loading />;
     } else {
       return <Router />;
