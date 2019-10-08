@@ -15,6 +15,10 @@ class ProfileStore {
       console.error(err);
     }
   };
+
+  getProfileById(id) {
+    return this.authors.find(author => +author.id === +id);
+  }
 }
 
 // username = () => {

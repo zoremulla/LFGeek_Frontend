@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // Stores
-import authStore from "./stores/authStore";
+import authStore from "../stores/authStore";
 
 class UserProfile extends Component {
   render() {
