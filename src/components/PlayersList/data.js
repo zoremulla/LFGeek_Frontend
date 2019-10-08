@@ -5,14 +5,14 @@ const players = [
     first_name: "Ahmed",
     last_name: "Alrasheed",
     email: "monstry@gmail.com",
-    bio: "My name is ahmed, i live in kuwait.",
+    cv: "My name is ahmed, i live in kuwait.",
     plfg: true,
-    gamesfollowed: "Overwatch",
-    clansjoined: "",
+    games: "Overwatch",
+    clansjoined: ["Wabo", "Fortune"],
     birthdate: "20/05/1987",
-    avatar: "",
-    followers: 6,
-    platforms: "PC",
+    avatar: "https://avatarfiles.alphacoders.com/700/70045.png",
+    friends: ["MoeMania", "Nawafz"],
+    platforms: ["PC", "Playstation 4"],
     region: "Europe"
   },
   {
@@ -21,13 +21,13 @@ const players = [
     first_name: "Nawaf",
     last_name: "Aleissa",
     email: "nbassem@gmail.com",
-    bio: "My name is Nawaf, i study in London. Would like to join casual clans",
+    cv: "My name is Nawaf, i study in London. Would like to join casual clans",
     plfg: true,
-    gamesfollowed: "Heroes of the Storm",
-    clansjoined: "",
+    games: "Heroes of the Storm",
+    clansjoined: [""],
     birthdate: "16/07/1992",
-    avatar: "",
-    followers: 20,
+    avatar: "https://avatarfiles.alphacoders.com/198/198287.jpg",
+    friends: ["Monstry"],
     platforms: "",
     region: "Middle East"
   },
@@ -37,34 +37,34 @@ const players = [
     first_name: "Mohammad",
     last_name: "Alrasheed",
     email: "MoeMania@gmail.com",
-    bio:
+    cv:
       "My name is Mohammad, i live in America. Would like to join casual clans from Kuwait",
     plfg: false,
-    gamesfollowed: "Dota 2",
-    clansjoined: "",
+    games: "Dota 2",
+    clansjoined: "NinInchNinjas",
     birthdate: "16/08/1991",
-    avatar: "",
-    followers: 2,
+    avatar: "https://avatarfiles.alphacoders.com/149/149781.png",
+    friends: [""],
     platforms: "",
     region: "Middle East"
   },
   {
     id: 4,
-    username: "MoeMania",
+    username: "Zore",
     first_name: "Mohammad",
-    last_name: "Alrasheed",
-    email: "MoeMania@gmail.com",
-    bio:
-      "My name is Mohammad, i live in America. Would like to join casual clans from Kuwait",
+    last_name: "Mulla",
+    email: "zore.mulla@gmail.com",
+    cv:
+      "My name is Mohammad, i live in Kuwait. Would like to join casual clans from Kuwait",
     plfg: false,
-    gamesfollowed: "Dota 2",
-    clansjoined: "",
-    birthdate: "16/08/1991",
-    avatar: "",
-    followers: 2,
+    games: "Fortnite",
+    clansjoined: [""],
+    birthdate: "16/08/1986",
+    avatar: "https://avatarfiles.alphacoders.com/165/165562.png",
+    friends: 2,
     platforms: "",
     region: "Middle East"
   }
 ];
 
-export default clans;
+export default players;

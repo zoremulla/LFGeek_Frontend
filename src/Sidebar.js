@@ -15,7 +15,7 @@ export default Sidebar => {
         Profile
       </a>
 
-      <a className="menu-item" href="/playerlist/">
+      <a className="menu-item" href="/PlayersList/">
         Find a group
       </a>
 
