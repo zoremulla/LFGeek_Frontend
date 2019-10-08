@@ -1,8 +1,5 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
-import { Sidebar } from "semantic-ui-react";
-
-import LoginForm from "./forms/loginForm";
 
 export default Sidebar => {
   return (
