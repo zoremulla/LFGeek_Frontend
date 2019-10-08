@@ -21,7 +21,7 @@ class AuthStore {
   signup = async (userData, history) => {
     try {
       await instance.post("/register/", userData);
-      history.replace("/gamelist/");
+      history.replace("/gameslist/");
     } catch (err) {
       console.error(err.response.data);
     }
@@ -32,7 +32,7 @@ class AuthStore {
       const res = await instance.post("/login/", userData);
       const user = res.data;
       this.setUser(user.token);
-      history.replace("/");
+      history.replace("/gameslist/");
     } catch (err) {
       console.error(err.response.data);
     }
