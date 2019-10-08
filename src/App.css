@@ -34,7 +34,7 @@ body {
 #page-wrap {
   text-align: center;
   overflow: auto;
-  color: rgb(2, 2, 2);
+  color: black;
 }
 
 .bm-item {
@@ -43,6 +43,10 @@ body {
   margin-bottom: 10px;
   color: #070000;
   transition: color 0.2s;
+}
+
+.img {
+  background-size: contain;
 }
 
 .bm-item:hover {
