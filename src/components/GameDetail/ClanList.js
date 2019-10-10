@@ -11,11 +11,14 @@ import clans from "./data";
 
 function ClansList() {
   const ClanCards = clans.map(clan => <ClanCard key={clan.id} clan={clan} />);
-
+  // const ClansList = () => {
+  //   const ClanCards = clansStore.map(clan =>(
+  //       <ClanCard key={clan.id} clan={clan} />
+  //     ));
   return (
     <div className="clans">
       <h3>Clans LFG</h3>
-      {/* <SearchBar store={gamesStore} /> */}
+      {/* <SearchBar store={clansStore} /> */}
       <div className="card-deck">{ClanCards}</div>
     </div>
   );
