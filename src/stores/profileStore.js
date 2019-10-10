@@ -4,6 +4,7 @@ import { decorate, observable } from "mobx";
 class ProfileStore {
   profile = "";
   loading = true;
+  errors = null;
 
   fetchProfile = async () => {
     try {
@@ -27,7 +28,8 @@ class ProfileStore {
 
 decorate(ProfileStore, {
   profile: observable,
-  loading: observable
+  loading: observable,
+  errors: observable
 });
 
 let profileStore = new ProfileStore();

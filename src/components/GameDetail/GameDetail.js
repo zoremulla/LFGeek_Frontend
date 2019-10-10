@@ -3,8 +3,9 @@ import { observer } from "mobx-react";
 
 // Components
 import PlayersList from "../PlayersList/PlayersList";
-import ClanList from "../GameDetail/ClanList";
 import gamesStore from "../../stores/gamesStore";
+import Loading from "../../Loading";
+import GuildsList from "./GuildsList";
 // import SearchBar from "../SearchBar";
 
 class GameDetail extends Component {
@@ -15,19 +16,20 @@ class GameDetail extends Component {
   //     profileStore.fetchNotification();
   //     cartStore.fetchCart();
   render() {
+    const gameid = this.props.match.params.gameid;
+    console.log("GAME ID", gameid);
+    gamesStore.getGameById(gameid);
     if (gamesStore.loading) {
       return <Loading />;
     }
-    const gameid = this.props.match.params.gameid;
 
     return (
-      <div className="clans">
-        <h3>Clans LFM</h3>
-        // {/* <SearchBar store={gamesStore} /> */}
+      <div>
+        <h3> </h3>
+        {/* <SearchBar store={gamesStore} /> */}
         <div className="card-deck">
-          <ClanList />
+          <GuildsList />
         </div>
-        <h3>Players LFG</h3>
         <div className="card-deck">
           <PlayersList />
         </div>

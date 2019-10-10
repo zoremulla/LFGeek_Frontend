@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-const GameCard = props => {
-  const game = props.game;
-  const gameName = `${game.name}`;
-  return (
-    <Link to={`/game/${game.id}`} className="card">
-      <div className="card">
+// const GameCard = props => {
+//   const game = props.game;
+//   const gameName = `${game.name}`;
+class GameCard extends Component {
+  render() {
+    const game = this.props.game;
+    const gameName = `${game.name}`;
+    console.log("GAME", game);
+    return (
+      <Link to={`/detailgame/${game.id}`} className="card">
         <div className="image">
           <img src={game.image} className="card-img-top" alt="{gameName}" />
           <div className="card-body">
@@ -20,9 +24,9 @@ const GameCard = props => {
             </p>
           </div>
         </div>
-      </div>
-    </Link>
-  );
-};
-
+      </Link>
+    );
+    // };
+  }
+}
 export default GameCard;

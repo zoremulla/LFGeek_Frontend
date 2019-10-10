@@ -1,13 +1,9 @@
 import { decorate, observable, computed } from "mobx";
 import { instance } from "./instance";
-// import data from "./data";
-// const instance = axios.create({
-//   baseURL: "./data"
-// });
 
-// function errToArray(err) {
-//   return Object.keys(err).map(key => `${key}: ${err[key]}`);
-// }
+function errToArray(err) {
+  return Object.keys(err).map(key => `${key}: ${err[key]}`);
+}
 
 class GamesStore {
   games = [];
@@ -22,7 +18,7 @@ class GamesStore {
 
   fetchAllGames = async () => {
     try {
-      const res = await instance.get("");
+      const res = await instance.get("gamelist/");
       const games = res.data;
       this.games = games;
       this.loading = false;

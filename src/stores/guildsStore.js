@@ -10,7 +10,8 @@ import { instance } from "./instance";
 // }
 
 class GuildsStore {
-  guilds = null;
+  guilds = [];
+  guild = null;
 
   loading = true;
 
@@ -20,14 +21,26 @@ class GuildsStore {
 
   fetchAllGuilds = async () => {
     try {
-      const res = await instance.get("");
+      const res = await instance.get("guild/");
       const guilds = res.data;
       this.guilds = guilds;
+      console.log("guilds", guilds);
       this.loading = false;
     } catch (err) {
       console.error(err);
     }
   };
+  // fetchGuild = async () => {
+  //   try {
+  //     const res = await instance.get("guild/");
+  //     const guilds = res.data;
+  //     this.guilds = guilds;
+  //     console.log("guilds", guilds);
+  //     this.loading = false;
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   //   get filteredGuilds() {
   //     return this.guilds.filter(guild =>
@@ -39,15 +52,15 @@ class GuildsStore {
 }
 
 decorate(GuildsStore, {
-  games: observable,
+  guilds: observable,
   loading: observable,
   errors: observable,
-  query: observable,
-  filteredGuilds: computed
+  query: observable
+  // filteredGuilds: computed
 });
 
-const clansStore = new clansStore();
+const guildsStore = new GuildsStore();
 
-clansStore.fetchAllGuilds();
-
-export default clansStore;
+guildsStore.fetchAllGuilds();
+console.log(guildsStore);
+export default guildsStore;
