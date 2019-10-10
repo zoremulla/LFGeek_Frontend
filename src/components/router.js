@@ -8,6 +8,7 @@ import SignupForm from "../forms/SignupForm";
 import UserProfile from "./UserProfile";
 import ClanList from "./GameDetail/ClanList";
 import PlayersList from "./PlayersList/PlayersList";
+import CreateGuildForm from "../forms/createGuild";
 
 const Router = () => (
   <Switch>
@@ -17,6 +18,7 @@ const Router = () => (
     <Route path="/profile/" component={UserProfile} />
     <Route path="/clanlist/" component={ClanList} />
     <Route path="/playerslist/" component={PlayersList} />
+    <Route path="/guild/" component={CreateGuildForm} />
   </Switch>
 );
 

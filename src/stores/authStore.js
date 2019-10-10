@@ -6,7 +6,7 @@ class AuthStore {
   user = null;
   setUser = token => {
     if (token) {
-      instance = `Bearer ${token}`;
+      instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       const decodedUser = jwt_decode(token);
       this.user = decodedUser;
       localStorage.setItem("myToken", token);
