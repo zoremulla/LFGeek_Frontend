@@ -37,6 +37,17 @@ body {
   color: black;
 }
 
+.cards {
+  margin: auto;
+  width: 100%;
+  position: middle;
+  padding-left: 270px;
+}
+.cardtitle {
+  margin: auto;
+  width: 80%;
+  padding-left: 630px;
+}
 .bm-item {
   display: inline-block;
   text-decoration: none;

@@ -36,7 +36,9 @@ class GamesStore {
   getGameById = id => {
     // try and catch
     try {
+      // instance.get("detailgame/");
       this.game = this.games.find(game => +game.id === +id);
+      // this.loading = false;
     } catch (error) {
       console.log("error", error);
     }

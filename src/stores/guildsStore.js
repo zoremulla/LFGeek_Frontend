@@ -5,9 +5,9 @@ import { instance } from "./instance";
 //   baseURL: "./data"
 // });
 
-// function errToArray(err) {
-//   return Object.keys(err).map(key => `${key}: ${err[key]}`);
-// }
+function errToArray(err) {
+  return Object.keys(err).map(key => `${key}: ${err[key]}`);
+}
 
 class GuildsStore {
   guilds = [];
@@ -41,7 +41,6 @@ class GuildsStore {
   //     console.error(err);
   //   }
   // };
-
   //   get filteredGuilds() {
   //     return this.guilds.filter(guild =>
   //       `${guild.name}`.toLowerCase().includes(this.query.toLowerCase())

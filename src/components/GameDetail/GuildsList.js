@@ -19,8 +19,6 @@ const GuildsList = () => {
   return (
     <div className="guilds">
       <h3>Guilds LFG</h3>
-      {/* <h3>{guildsStore.guilds.length}</h3> */}
-
       {/* <SearchBar store={clansStore} /> */}
       <div className="card-deck">{GuildCards}</div>
     </div>
