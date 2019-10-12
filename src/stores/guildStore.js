@@ -5,7 +5,7 @@ class GuildStore {
   guild = "";
   loading = true;
 
-  fetchProfile = async () => {
+  fetchGuild = async () => {
     try {
       const res = instance.get("/guild/");
       const guild = res.data;
@@ -16,7 +16,7 @@ class GuildStore {
     }
   };
 
-  getProfileById(id) {
+  getGuildById(id) {
     return this.guild.find(guild => +guild.id === +id);
   }
 }
