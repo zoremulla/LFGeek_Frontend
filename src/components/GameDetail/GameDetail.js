@@ -2,30 +2,34 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // Components
-import PlayersList from "../PlayersList/PlayersList";
 import gamesStore from "../../stores/gamesStore";
 import Loading from "../../Loading";
-import GuildsList from "./GuildsList";
-
+import GuildCard from "./GuildCard";
+import PlayerCard from "../PlayersList/PlayerCard";
 // import SearchBar from "../SearchBar";
 import { Card } from "react-bootstrap";
 import guildsStore from "../../stores/guildsStore";
 
 class GameDetail extends Component {
-  // componentDidMount() {
-  //   if (authStore.user) {
-  //     profileStore.fetchProfile();
-  //     profileStore.fetchHistory();
-  //     profileStore.fetchNotification();
-  //     cartStore.fetchCart();
-  render() {
+  async componentDidMount() {
     const gameid = this.props.match.params.gameid;
     console.log("GAME ID", gameid);
-    gamesStore.getGameById(gameid);
-    if (gamesStore.loading) {
+    await gamesStore.getGameById(gameid);
+    console.log("GAMEID", gameid);
+  }
+
+  render() {
+    if (!gamesStore.game) {
       return <Loading />;
     }
+    const GuildC = gamesStore.game.guilds.map(guild => (
+      <GuildCard key={guild.id} guild={guild} />
+    ));
 
+    const PlayerC = gamesStore.game.players.map(player => (
+      <PlayerCard key={player.id} player={player} />
+    ));
+    console.log("GAME", gamesStore.game);
     // const guildsbygame= this.game.guilds.map(guild => )
     return (
       <div>
@@ -38,12 +42,12 @@ class GameDetail extends Component {
             </Card.Body>
           </Card>
         </div>
-        <br></br>
-        <text></text>
-
+        <br />
+        <div>{GuildCard}</div>
         {/* <SearchBar store={gamesStore} /> */}
-        <div className="cards"></div>
-        <div className="cards">{/* <PlayersList /> */}</div>
+        <h2>Guilds List</h2>
+        <div className="card-deck">{GuildC}</div> <h2>Players List</h2>
+        <div className="card-deck">{PlayerC}</div>{" "}
       </div>
     );
   }

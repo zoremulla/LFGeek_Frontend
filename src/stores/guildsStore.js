@@ -52,6 +52,7 @@ class GuildsStore {
 
 decorate(GuildsStore, {
   guilds: observable,
+  guild: observable,
   loading: observable,
   errors: observable,
   query: observable

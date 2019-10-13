@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-// function GuildCard(props) {
-//   const guild = props.guild;
-//   const guildName = `${guild.name}`;
-//   const guildstatus =`${guild.clfg}`
-// if statements to display the guilds that are LFG at the momment onl
 class GuildCard extends Component {
   render() {
     const guild = this.props.guild;

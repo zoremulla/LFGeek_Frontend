@@ -2,13 +2,14 @@ import { instance } from "./instance";
 import { decorate, observable } from "mobx";
 
 class ProfileStore {
+  // profiles = [];
   profile = "";
   loading = true;
   errors = null;
 
   fetchProfile = async () => {
     try {
-      const res = await instance.get("/profile/");
+      const res = await instance.get("profile/");
       const profile = res.data;
       this.profile = profile;
       this.loading = false;
@@ -25,12 +26,25 @@ class ProfileStore {
 //     return "";
 //   }
 // };
+// fetchAllProfiles = async () => {
+//   try {
+//     const res = await instance.get("profile/");
+//     const profiles = res.data;
+//     this.profiles = profiles;
+//     this.loading = false;
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
 
 decorate(ProfileStore, {
+  // profiles: observable,
   profile: observable,
   loading: observable,
   errors: observable
 });
 
 let profileStore = new ProfileStore();
-export default profileStore;
+// profileStore.fetchProfile();
+// profileStore.fetchAllProfiles();
+export default ProfileStore;

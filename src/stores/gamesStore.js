@@ -33,20 +33,25 @@ class GamesStore {
   //   );
   // }
 
-  getGameById = id => {
+  getGameById = async id => {
     // try and catch
+    // this.game = this.games.find(game => +game.id === +id);
+    console.log("IS within store", id);
     try {
-      // instance.get("detailgame/");
-      this.game = this.games.find(game => +game.id === +id);
-      // this.loading = false;
+      const res = await instance.get(`detailgame/${id}/`);
+      const game = res.data;
+      this.game = game;
+      this.loading = false;
     } catch (error) {
-      console.log("error", error);
+      console.error("error", error);
     }
   };
 }
+// this.loading = false;
 
 decorate(GamesStore, {
   games: observable,
+  game: observable,
   loading: observable,
   errors: observable,
   query: observable
