@@ -8,7 +8,6 @@ import GuildCard from "./GuildCard";
 import PlayerCard from "../PlayersList/PlayerCard";
 // import SearchBar from "../SearchBar";
 import { Card } from "react-bootstrap";
-import guildsStore from "../../stores/guildsStore";
 
 class GameDetail extends Component {
   async componentDidMount() {
@@ -30,7 +29,6 @@ class GameDetail extends Component {
       <PlayerCard key={player.id} player={player} />
     ));
     console.log("GAME", gamesStore.game);
-    // const guildsbygame= this.game.guilds.map(guild => )
     return (
       <div>
         <div className="cardtitle">
@@ -38,16 +36,22 @@ class GameDetail extends Component {
             <Card.Img variant="top" src={gamesStore.game.image} />
             <Card.Body>
               <Card.Title>{gamesStore.game.name}</Card.Title>
+              <Card.Text>{gamesStore.game.description}</Card.Text>
+              <Card.Text>Released {gamesStore.game.year}</Card.Text>
               <Card.Text> Recruitment Zone</Card.Text>
             </Card.Body>
           </Card>
         </div>
         <br />
-        <div>{GuildCard}</div>
         {/* <SearchBar store={gamesStore} /> */}
         <h2>Guilds List</h2>
-        <div className="card-deck">{GuildC}</div> <h2>Players List</h2>
-        <div className="card-deck">{PlayerC}</div>{" "}
+        <div>
+          <div className="card-deck">
+            <div>{GuildC}</div>
+          </div>
+        </div>
+        <h2>Players List</h2>
+        <div className="card-deck">{PlayerC}</div>
       </div>
     );
   }
