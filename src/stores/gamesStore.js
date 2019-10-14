@@ -1,63 +1,65 @@
-// import { decorate, observable, computed } from "mobx";
-// import axios from "axios";
-// import data from "./data";
-// // const instance = axios.create({
-// //   baseURL: "./data"
-// // });
+import { decorate, observable, computed } from "mobx";
+import { instance } from "./instance";
 
-// function errToArray(err) {
-//   return Object.keys(err).map(key => `${key}: ${err[key]}`);
-// }
+function errToArray(err) {
+  return Object.keys(err).map(key => `${key}: ${err[key]}`);
+}
 
-// class GamesStore {
-//   games = [...data];
+class GamesStore {
+  games = [];
 
-//   loading = true;
+  game = null;
 
-//   query = "";
+  loading = true;
 
-//   errors = null;
+  query = "";
 
-//   // fetchGames = async () => {
-//   //   try {
-//   //     const res = await instance.get("./data");
-//   //     const games = res.data;
-//   //     this.games = games;
-//   //     this.loading = false;
-//   //   } catch (err) {
-//   //     console.error(err);
-//   //   }
-//   // };
+  errors = null;
 
-//   // addAuthor = async newAuthor => {
-//   //   try {
-//   //     const res = await instance.post("/api/games/", newAuthor);
-//   //     const author = res.data;
-//   //     this.games.unshift(author);
-//   //     this.errors = null;
-//   //   } catch (err) {
-//   //     this.errors = errToArray(err.response.data);
-//   //   }
-//   // };
+  fetchAllGames = async () => {
+    try {
+      const res = await instance.get("gamelist/");
+      const games = res.data;
+      this.games = games;
+      this.loading = false;
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-//   get filteredGames() {
-//     return this.games.filter(game =>
-//       `${game.name}`.toLowerCase().includes(this.query.toLowerCase())
-//     );
-//   }
+  // get filteredGames() {
+  //   return this.games.filter(game =>
+  //     `${game.name}`.toLowerCase().includes(this.query.toLowerCase())
+  //   );
+  // }
 
-//   getGameById = id => this.games.find(game => +game.id === +id);
-// }
+  getGameById = async id => {
+    // try and catch
+    // this.game = this.games.find(game => +game.id === +id);
+    console.log("IS within store", id);
+    try {
+      const res = await instance.get(`detailgame/${id}/`);
+      const game = res.data;
+      this.game = game;
+      this.loading = false;
+    } catch (error) {
+      console.error("error", error);
+    }
+  };
+}
+// this.loading = false;
 
-// decorate(GamesStore, {
-//   games: observable,
-//   loading: observable,
-//   errors: observable,
-//   query: observable,
-//   filteredGames: computed
-// });
+decorate(GamesStore, {
+  games: observable,
+  game: observable,
+  loading: observable,
+  errors: observable,
+  query: observable
+  //   filteredGames: computed
+});
 
-// const gamesStore = new GamesStore();
-// // gamesStore.fetchGames();
+const gamesStore = new GamesStore();
 
-// export default gamesStore;
+gamesStore.fetchAllGames();
+
+export default gamesStore;

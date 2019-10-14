@@ -6,12 +6,13 @@ import GameCard from "./GameCard";
 // import SearchBar from "../SearchBar";
 
 // Store
-// import gamesStore from "./gamesStore";
-import games from "./data";
+// import games from "./data";
+import gamesStore from "../../stores/gamesStore";
 
-function GamesList() {
-  const GameCards = games.map(game => <GameCard key={game.id} game={game} />);
-
+const GamesList = () => {
+  const GameCards = gamesStore.games.map(game => (
+    <GameCard key={game.id} game={game} />
+  ));
   return (
     <div className="games">
       <h3>Games</h3>
@@ -19,6 +20,6 @@ function GamesList() {
       <div className="card-deck">{GameCards}</div>
     </div>
   );
-}
+};
 
 export default observer(GamesList);

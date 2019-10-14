@@ -1,39 +1,40 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
 
-function PlayerCard(props) {
-  const player = props.player;
-  const playerName = `${player.username}`;
-  // const playerclan = `${player.clansjoined}`;
-  // const playerclan = clans.clansjoined.map(clan => <PlayerCard key={clan.id} clan={clan} />);
-  //   const playerstatus =`${player.plfg}`
-  // if statements to display the clans that are LFG at the momment onl
-  //   function Playersclanz(){
+class PlayerCard extends Component {
+  render() {
+    const player = this.props.player;
+    // const profileName = `${profile.username}`;
+    console.log("PROFILE", player);
 
-  //     const playerclan = player.clansjoined.map(clan => (
-  //       <p className="card-text">{clan}</p>
-  //   ));
-  // }
-
-  return (
-    <div className="card">
-      <img src={player.avatar} className="card-img-top" alt="{playerName}" />
-      <div className="card-body">
-        <h5 className="card-title">{playerName}</h5>
-        <p className="card-text">{player.cv}</p>
-        <p className="card-text">I am following these games </p>
-        <p className="card-text">{player.games} </p>
-        <p className="card-text"> Currently in these clans </p>
-        <p className="card-text">{player.clansjoined}</p>
-
-        {/* {playerclan} */}
-        {/* <h5 className="card-title">LFG Status: </h5> */}
-        <small className="text-muted">Region: {player.region}</small>
-        <br></br>
-        <button>Check profile</button>
+    return (
+      /* <div className="card">
+        <img src={player.image} className="card-img-top" alt="{profileName}" />
+        <div className="card-body">
+          <h5 className="card-title">{player.username}</h5>
+          <p className="card-text">{player.cv}</p>
+          <p className="card-text">I am following these games </p>
+          <p className="card-text">{player.games} </p>
+          <p className="card-text"> Currently in these clans </p>
+          <p className="card-text">{player.clansjoined}</p>
+          <small className="text-muted">Country: {player.country}</small>
+          <br></br>
+        </div>
+      </div> */
+      <div>
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={player.image} />
+          <Card.Body>
+            <Card.Title>{player.username}</Card.Title>
+            <Card.Text>{player.cv}</Card.Text>
+            <Card.Text>Country: {player.country}</Card.Text>
+            <Button variant="primary">Profile</Button>
+          </Card.Body>
+        </Card>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default PlayerCard;

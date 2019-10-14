@@ -4,19 +4,19 @@ import { slide as Menu } from "react-burger-menu";
 export default Sidebar => {
   return (
     <Menu>
-      <a className="menu-item" href="/gameslist/">
+      <a className="menu-item" href="/gamelist/">
         Home
       </a>
 
-      <a className="menu-item" href="/profile/">
+      <a className="menu-item" href="/profile">
         Profile
       </a>
-
-      <a className="menu-item" href="/PlayersList/">
+      {/* 
+      <a className="menu-item" href="/PlayersList">
         Find a group
-      </a>
+      </a> */}
 
-      <a className="menu-item" href="/ClanList/">
+      <a className="menu-item" href="/guild ">
         Clans
       </a>
 
