@@ -20,7 +20,7 @@ class CreateGuildForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    guildStore.guild(this.state, this.props.history);
+    guildStore.postForm(this.state, this.props.history);
   };
   // componentDidMount() {
   //   if (guildStore.user) {

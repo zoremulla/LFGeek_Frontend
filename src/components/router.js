@@ -12,13 +12,13 @@ import CreateGuildForm from "../forms/createGuild";
 
 const Router = () => (
   <Switch>
-    <Route path="/gameslist/" component={GamesList} />
-    <Route path="/login/" component={LoginForm} />
-    <Route path="/register/" component={SignupForm} />
-    <Route path="/profile/" component={UserProfile} />
-    <Route path="/clanlist/" component={ClanList} />
-    <Route path="/playerslist/" component={PlayersList} />
-    <Route path="/guild/" component={CreateGuildForm} />
+    <Route path="/gameslist" component={GamesList} />
+    <Route path="/login" component={LoginForm} />
+    <Route path="/register" component={SignupForm} />
+    <Route path="/profile" component={UserProfile} />
+    <Route path="/clanlist" component={ClanList} />
+    <Route path="/playerslist" component={PlayersList} />
+    <Route path="/guild" component={CreateGuildForm} />
   </Switch>
 );
 

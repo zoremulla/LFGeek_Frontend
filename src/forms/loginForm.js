@@ -56,7 +56,11 @@ class LoginForm extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={this.handleSubmit}
+              >
                 Login
               </button>
               <Link to="/register/" className="btn btn-link my-2 my-sm-0">

@@ -14,7 +14,7 @@ class GuildProfile extends Component {
   }
 
   render() {
-    if (!authStore.user) return <Redirect to="/login/" />;
+    if (!authStore.user) return <Redirect to="/login" />;
     // add loading if
     if (guildStore.loading) {
       return <Loading />;
@@ -26,9 +26,9 @@ class GuildProfile extends Component {
         <div>
           <h3>{guild.user}</h3>
           <img
-            src={guild.avatar}
+            src={guild.tag}
             className="img-thumbnail img-fluid"
-            alt={guild.user}
+            alt={guild.name}
           />
         </div>
       </div>
