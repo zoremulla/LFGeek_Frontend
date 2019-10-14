@@ -29,7 +29,7 @@ class CreateGuildForm extends Component {
   // }
   render() {
     const { name, games, platform, tag, description } = this.state;
-    if (guildStore.user) return <Redirect to="/guild/" />;
+    if (guildStore.user) return <Redirect to="/guild" />;
 
     return (
       <div className="col-6 mx-auto">
@@ -52,7 +52,7 @@ class CreateGuildForm extends Component {
               <div className="form-group">
                 <label htmlFor="games">Games</label>
                 <input
-                  type="games"
+                  type="list"
                   className="form-control"
                   id="games"
                   value={games}

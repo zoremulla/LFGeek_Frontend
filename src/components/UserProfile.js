@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import { Redirect } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
 
 // Stores
 import authStore from "../stores/authStore";
@@ -22,20 +23,17 @@ class UserProfile extends Component {
     }
 
     const profile = profileStore.profile;
+    console.log(profile);
     return (
-      <div className="profile">
+      <div>
         <div>
-          <h3>{profile.user.username}</h3>
+          <h1>{profile.username}</h1>
         </div>
         <div>
-          <h6>{profile.user.email}</h6>
+          <img src={profile.image} className="img-responsive" alt="tag" />
         </div>
         <div>
-          <img
-            src={profile.user.image}
-            className="img-thumbnail img-fluid"
-            alt={profile.user.username}
-          />
+          <h6>{profile.cv}</h6>
         </div>
       </div>
     );

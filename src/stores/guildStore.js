@@ -22,7 +22,7 @@ class GuildStore {
 
   fetchGuild = async () => {
     try {
-      const res = instance.get("/guild/");
+      const res = instance.get("guild/");
       const guild = res.data;
       this.guild = guild;
       this.loading = false;
@@ -37,8 +37,8 @@ class GuildStore {
 
   postForm = async (guildData, history) => {
     try {
-      const res = await instance.post("/guild/", guildData);
-      const guild = res.data;
+      const res = await instance.post("guild/", guildData);
+      const guilds = res.data;
       history.replace("/clanlist");
     } catch (err) {
       console.error(err.response);

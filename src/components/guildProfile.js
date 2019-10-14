@@ -24,7 +24,7 @@ class GuildProfile extends Component {
     return (
       <div className="guild">
         <div>
-          <h3>{guild.user}</h3>
+          <h3>{guild.name}</h3>
           <img
             src={guild.tag}
             className="img-thumbnail img-fluid"
