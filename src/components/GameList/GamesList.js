@@ -9,8 +9,6 @@ import GameCard from "./GameCard";
 // import games from "./data";
 import gamesStore from "../../stores/gamesStore";
 
-// function GamesList() {
-//   const GameCards = game.map(game => <GameCard key={game.id} game={game} />);
 const GamesList = () => {
   const GameCards = gamesStore.games.map(game => (
     <GameCard key={game.id} game={game} />
