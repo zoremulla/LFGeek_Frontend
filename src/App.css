@@ -37,6 +37,20 @@ body {
   color: black;
 }
 
+.cards {
+  margin: auto;
+  width: 100%;
+  position: middle;
+  padding-left: 270px;
+}
+.cardtitle {
+  margin: auto;
+  width: 80%;
+  padding-left: 630px;
+}
+.card-deck {
+  width: 85%;
+}
 .bm-item {
   display: inline-block;
   text-decoration: none;
@@ -44,11 +58,6 @@ body {
   color: #070000;
   transition: color 0.2s;
 }
-
-.img {
-  background-size: contain;
-}
-
 .bm-item:hover {
   color: white;
 }

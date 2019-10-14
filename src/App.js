@@ -11,6 +11,7 @@ import authStore from "./stores/authStore";
 
 // Styling
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const getView = () => {
@@ -27,7 +28,6 @@ function App() {
       <div id="page-wrap">
         <img src="" />
         <h1>LFGeek</h1>
-        <h2>Tired of playing alone?</h2>
         <div className="content col-10">{getView()}</div>
       </div>
     </div>
