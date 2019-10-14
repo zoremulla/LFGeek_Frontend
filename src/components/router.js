@@ -7,18 +7,21 @@ import LoginForm from "../forms/loginForm";
 import SignupForm from "../forms/SignupForm";
 import UserProfile from "./UserProfile";
 import PlayersList from "./PlayersList/PlayersList";
+import CreateGuildForm from "../forms/createGuild";
 import GameDetail from "./GameDetail/GameDetail";
 import GuildsList from "./GameDetail/GuildsList";
 
 const Router = () => (
   <Switch>
-    <Route path="/gamelist/" component={GamesList} />
+    <Route path="/gamelist" component={GamesList} />
     <Route path="/detailgame/:gameid" component={GameDetail} />
     <Route path="/login" component={LoginForm} />
     <Route path="/register" component={SignupForm} />
     <Route path="/profile" component={UserProfile} />
     <Route path="/guild" component={GuildsList} />
-    {/* <Route path="/playerslist" component={PlayersList} /> */}
+    <Route path="/clanlist" component={ClanList} />
+    <Route path="/playerslist" component={PlayersList} />
+    <Route path="/guild" component={CreateGuildForm} />
   </Switch>
 );
 

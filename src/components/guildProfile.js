@@ -3,32 +3,32 @@ import { observer } from "mobx-react";
 
 // Stores
 import authStore from "../stores/authStore";
-import profileStore from "../stores/profileStore";
+import guildStore from "../stores/guildStore";
 import Loading from "../Loading";
 
-class UserProfile extends Component {
+class GuildProfile extends Component {
   componentDidMount() {
     if (authStore.user) {
-      profileStore.fetchProfile();
+      guildStore.fetchGuild();
     }
   }
 
   render() {
     if (!authStore.user) return <Redirect to="/login/" />;
     // add loading if
-    if (profileStore.loading) {
+    if (guildStore.loading) {
       return <Loading />;
     }
 
-    const profile = profileStore.profile;
+    const guild = guildStore.guild;
     return (
-      <div className="profile">
+      <div className="guild">
         <div>
-          <h3>{profile.user}</h3>
+          <h3>{guild.user}</h3>
           <img
-            src={profile.avatar}
+            src={guild.avatar}
             className="img-thumbnail img-fluid"
-            alt={profile.user}
+            alt={guild.user}
           />
         </div>
       </div>
@@ -36,4 +36,4 @@ class UserProfile extends Component {
   }
 }
 
-export default observer(UserProfile);
+export default observer(GuildProfile);

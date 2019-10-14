@@ -17,7 +17,6 @@ class ProfileStore {
       console.error(err);
     }
   };
-}
 
 // username = () => {
 //   if (this.profile) {
@@ -37,6 +36,11 @@ class ProfileStore {
 //   }
 // };
 
+  getProfileById(id) {
+    return this.profile.find(profile => +profile.id === +id);
+  }
+}
+
 decorate(ProfileStore, {
   // profiles: observable,
   profile: observable,
@@ -45,6 +49,5 @@ decorate(ProfileStore, {
 });
 
 let profileStore = new ProfileStore();
-// profileStore.fetchProfile();
 // profileStore.fetchAllProfiles();
 export default ProfileStore;
