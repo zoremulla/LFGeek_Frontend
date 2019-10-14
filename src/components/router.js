@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 //components
 import GamesList from "./GameList/GamesList";
@@ -19,9 +19,9 @@ const Router = () => (
     <Route path="/register" component={SignupForm} />
     <Route path="/profile" component={UserProfile} />
     <Route path="/guild" component={GuildsList} />
-    <Route path="/clanlist" component={ClanList} />
     <Route path="/playerslist" component={PlayersList} />
-    <Route path="/guild" component={CreateGuildForm} />
+    <Route path="/create/guild" component={CreateGuildForm} />
+    <Redirect from="/" to="/gamelist" />
   </Switch>
 );
 
