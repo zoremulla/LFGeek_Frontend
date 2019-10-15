@@ -34,6 +34,7 @@ class UserProfile extends Component {
         </div>
         <div>
           <h6>{profile.cv}</h6>
+          <img src={profile.country} className="img-responsive" alt="flag" />
         </div>
       </div>
     );
