@@ -6,6 +6,12 @@ import { observer } from "mobx-react";
 import guildStore from "../stores/guildStore";
 
 class CreateGuildForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: "WoW" };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
   state = {
     name: "",
     games: "",
@@ -49,18 +55,16 @@ class CreateGuildForm extends Component {
                 />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="games">Games</label>
-                <input
-                  type="list"
-                  className="form-control"
-                  id="games"
-                  value={games}
-                  name="games"
-                  placeholder="games"
-                  onChange={this.handleChange}
-                />
-              </div>
+              <select
+                multiple={true}
+                value={games}
+                onChange={this.handleChange}
+              >
+                <option value="WoW">WOW</option>
+                <option value="dota 2">Dota 2</option>
+                <option value="Heroes of the Storm">Heroes of the Storm</option>
+                <option value="overwatch">Overwatch</option>
+              </select>
               <div className="form-group">
                 <label htmlFor="platform">Platform</label>
                 <input
