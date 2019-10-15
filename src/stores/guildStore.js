@@ -2,23 +2,9 @@ import { instance } from "./instance";
 import { decorate, observable } from "mobx";
 
 class GuildStore {
-  guilds = [];
+  // guilds = [];
   guild = "";
   loading = true;
-
-  // guild = null;
-  // setGuild = token => {
-  //   if (token) {
-  //     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-  //     const decodedGuild = jwt_decode(token);
-  //     this.guild = decodedGuild;
-  //     localStorage.setItem("myToken", token);
-  //   } else {
-  //     // delete instance;
-  //     localStorage.removeItem("myToken");
-  //     this.guild = null;
-  //   }
-  // };
 
   fetchGuild = async () => {
     try {
@@ -37,9 +23,10 @@ class GuildStore {
 
   postForm = async (guildData, history) => {
     try {
-      const res = await instance.post("guild/", guildData);
-      const guilds = res.data;
-      history.replace("/clanlist");
+      const res = await instance.post("/guild/", guildData);
+      const guild = res.data;
+      this.guild = guild;
+      history.replace("guild/");
     } catch (err) {
       console.error(err.response);
     }

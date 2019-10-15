@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
 // Stores
@@ -35,6 +35,12 @@ class UserProfile extends Component {
         <div>
           <h6>{profile.cv}</h6>
           <img src={profile.country} className="img-responsive" alt="flag" />
+        </div>
+        <div>
+          {" "}
+          <Link to="/create/guild" className="btn btn-info m-2 float-left">
+            Create a Guild
+          </Link>{" "}
         </div>
       </div>
     );

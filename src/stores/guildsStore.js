@@ -21,10 +21,9 @@ class GuildsStore {
 
   fetchAllGuilds = async () => {
     try {
-      const res = await instance.get("guild/");
+      const res = await instance.get("/guild/");
       const guilds = res.data;
       this.guilds = guilds;
-      console.log("guilds", guilds);
       this.loading = false;
     } catch (err) {
       console.error(err);
