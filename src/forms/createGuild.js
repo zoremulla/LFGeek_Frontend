@@ -5,6 +5,9 @@ import { observer } from "mobx-react";
 // Stores
 import guildStore from "../stores/guildStore";
 
+// Raw Data
+import games from "./games";
+
 class CreateGuildForm extends Component {
   constructor(props) {
     super(props);
@@ -14,8 +17,8 @@ class CreateGuildForm extends Component {
   }
   state = {
     name: "",
-    games: "",
-    platform: "",
+    games: [],
+    platform: [],
     tag: "",
     description: ""
   };
@@ -34,9 +37,12 @@ class CreateGuildForm extends Component {
   //   }
   // }
   render() {
-    const { name, games, platform, tag, description } = this.state;
-    if (guildStore.user) return <Redirect to="/guild" />;
+    const { name, platform, tag, description } = this.state;
+    if (guildStore.guild) return <Redirect to="/guild" />;
 
+    let gamesOptions = games.map(games => (
+      <option value={games[0]}>{games[1]}</option>
+    ));
     return (
       <div className="col-6 mx-auto">
         <div className="card my-5">
@@ -54,17 +60,15 @@ class CreateGuildForm extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-
-              <select
-                multiple={true}
-                value={games}
-                onChange={this.handleChange}
-              >
-                <option value="WoW">WOW</option>
-                <option value="dota 2">Dota 2</option>
-                <option value="Heroes of the Storm">Heroes of the Storm</option>
-                <option value="overwatch">Overwatch</option>
-              </select>
+              <div>
+                <div className="form-group">
+                  <label htmlFor="games">Games</label>
+                  <select onClick={this.selectGames}>
+                    <option value={"--------"}>----------</option>
+                    {gamesOptions}
+                  </select>
+                </div>
+              </div>
               <div className="form-group">
                 <label htmlFor="platform">Platform</label>
                 <input

@@ -20,9 +20,9 @@ class AuthStore {
   signup = async (userData, history) => {
     try {
       const res = await instance.post("/register/", userData);
-      history.replace("/profile");
       const user = res.data;
       this.setUser(user.access);
+      history.replace("/profile");
     } catch (err) {
       console.error(err.response.data);
     }

@@ -23,6 +23,7 @@ class UserProfile extends Component {
     }
 
     const profile = profileStore.profile;
+    console.log("PROFILE", profileStore.profile);
     console.log(profile);
     return (
       <div>
