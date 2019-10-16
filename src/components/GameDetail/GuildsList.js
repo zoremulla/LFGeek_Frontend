@@ -9,8 +9,6 @@ import GuildCard from "./GuildCard";
 import guildsStore from "../../stores/guildsStore";
 // import clans from "./data";
 
-// function GuildsList() {
-//   const GuildCards = clansStore.guild.map(clan => <GuildCard key={clan.id} clan={clan} />);
 const GuildsList = () => {
   const GuildCards = guildsStore.guilds.map(guild => (
     <GuildCard key={guild.id} guild={guild} />

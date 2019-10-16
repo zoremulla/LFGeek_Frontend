@@ -27,6 +27,11 @@ class GamesStore {
     }
   };
 
+  getGameById = gameID => {
+    const game = this.games.find(game => +game.id === +gameID);
+    return game;
+  };
+
   // get filteredGames() {
   //   return this.games.filter(game =>
   //     `${game.name}`.toLowerCase().includes(this.query.toLowerCase())

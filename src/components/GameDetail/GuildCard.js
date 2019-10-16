@@ -5,7 +5,7 @@ import { Card, Button } from "react-bootstrap";
 class GuildCard extends Component {
   render() {
     const guild = this.props.guild;
-    console.log(guild);
+    console.log("IAM A GUILD ", `/guild/${guild.id}`);
     const guildName = `${guild.name}`;
     return (
       // {/* <div className="card">
@@ -24,15 +24,18 @@ class GuildCard extends Component {
       //     <small className="text-muted">Leader : {guild.master}</small>
       //   </div>
       // </div> */}
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={guild.tag} />
-        <Card.Body>
-          <Card.Title>{guildName}</Card.Title>
-          <Card.Text>{guild.description}</Card.Text>
-          <Card.Text>members: {guild.members}</Card.Text>
-          <Button variant="primary">Profile</Button>
-        </Card.Body>
-      </Card>
+      <Link to={`/guild/${guild.id}`} className="card">
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={guild.tag} />
+          <Card.Body>
+            <Card.Title>{guildName}</Card.Title>
+            <Card.Text>{guild.description}</Card.Text>
+            <Card.Text>{guild.games}</Card.Text>
+            <Card.Text>members: {guild.members}</Card.Text>
+            <Button variant="primary">Profile</Button>
+          </Card.Body>
+        </Card>
+      </Link>
     );
   }
 }
