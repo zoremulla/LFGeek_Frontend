@@ -1,5 +1,6 @@
 import React, { Component, Redirect } from "react";
 import { observer } from "mobx-react";
+import { Link } from "react-router-dom";
 
 // Stores
 import guildsStore from "../stores/guildsStore";
@@ -38,6 +39,10 @@ class GuildProfile extends Component {
           </Card.Body>
         </Card>
         <div className="card-deck"> {games}</div>
+        <br />
+        <Link to="/gamelist" className="btn btn-info m-2 float-left">
+          Join us!
+        </Link>
       </div>
     );
   }

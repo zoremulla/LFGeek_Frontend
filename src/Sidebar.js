@@ -16,10 +16,10 @@ class Sidebar extends Component {
         <a className="menu-item" href="/profile">
           Profile
         </a>
-        {/* 
-      <a className="menu-item" href="/PlayersList">
-        Find a group
-      </a> */}
+
+        {/* <a className="menu-item" href="/PlayersList">
+          Find a group
+        </a> */}
 
         <a className="menu-item" href="/guild ">
           Clans
