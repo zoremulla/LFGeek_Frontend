@@ -30,11 +30,12 @@ class GuildsStore {
     }
   };
   getGuildById = async id => {
-    console.log("is within store", id);
     try {
-      const res = await instance.get(`guild/${id}/`);
+      const res = await instance.get(`/guild/${id}/`);
       const guild = res.data;
       this.guild = guild;
+      console.log("is within store", guild);
+
       this.loading = false;
     } catch (error) {
       console.error("error", error);

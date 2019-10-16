@@ -17,9 +17,9 @@ class GuildStore {
     }
   };
 
-  getGuildById(id) {
-    return this.guild.find(guild => +guild.id === +id);
-  }
+  // getGuildById(id) {
+  //   return this.guild.find(guild => +guild.id === +id);
+  // }
 
   postForm = async (guildData, history) => {
     try {
