@@ -29,7 +29,7 @@ class Signup extends Component {
   };
   componentDidMount() {
     if (authStore.user) {
-      this.props.history.push("/");
+      this.props.history.push("profile/");
     }
   }
 
