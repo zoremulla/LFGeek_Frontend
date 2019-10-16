@@ -2,35 +2,37 @@ import React, { Component, Redirect } from "react";
 import { observer } from "mobx-react";
 
 // Stores
-import authStore from "../stores/authStore";
-import guildStore from "../stores/guildStore";
+import guildsStore from "../stores/guildStore";
 import Loading from "../Loading";
+import GuildCard from "../components/GameDetail/GuildCard";
+// import SearchBar from "../SearchBar";
+import { Card } from "react-bootstrap";
 
 class GuildProfile extends Component {
-  componentDidMount() {
-    if (authStore.user) {
-      guildStore.fetchGuild();
-    }
+  async componentDidMount() {
+    const guildid = this.props.match.params.guildid;
+    console.log("GUILD ID", guildid);
+    await guildsStore.getGuildById(guildid);
+    console.log("GAMEID", guildid);
   }
 
   render() {
-    if (!authStore.user) return <Redirect to="/login" />;
-    // add loading if
-    if (guildStore.loading) {
+    if (!guildsStore.guild) {
       return <Loading />;
     }
+    console.log("GUILD", guildsStore.guild);
 
-    const guild = guildStore.guild;
     return (
-      <div className="guild">
-        <div>
-          <h3>{guild.name}</h3>
-          <img
-            src={guild.tag}
-            className="img-thumbnail img-fluid"
-            alt={guild.name}
-          />
-        </div>
+      <div className="cardtitle">
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={guildsStore.tag} />
+          <Card.Body>
+            <Card.Title>{guildsStore.name}</Card.Title>
+            <Card.Text>{guildsStore.description}</Card.Text>
+            <Card.Text>Released {guildsStore.year}</Card.Text>
+            <Card.Text> Recruitment Zone</Card.Text>
+          </Card.Body>
+        </Card>
       </div>
     );
   }

@@ -29,24 +29,24 @@ class GuildsStore {
       console.error(err);
     }
   };
-  // fetchGuild = async () => {
-  //   try {
-  //     const res = await instance.get("guild/");
-  //     const guilds = res.data;
-  //     this.guilds = guilds;
-  //     console.log("guilds", guilds);
-  //     this.loading = false;
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+  getGuildById = async id => {
+    console.log("is within store", id);
+    try {
+      const res = await instance.get(`guild/${id}/`);
+      const guild = res.data;
+      this.guild = guild;
+      this.loading = false;
+    } catch (error) {
+      console.error("error", error);
+    }
+  };
   //   get filteredGuilds() {
   //     return this.guilds.filter(guild =>
   //       `${guild.name}`.toLowerCase().includes(this.query.toLowerCase())
   //     );
   //   }
 
-  getGuildById = id => this.guilds.find(guild => +guild.id === +id);
+  // getGuildById = id => this.guilds.find(guild => +guild.id === +id);
 }
 
 decorate(GuildsStore, {

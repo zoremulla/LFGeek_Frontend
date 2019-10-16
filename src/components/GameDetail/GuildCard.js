@@ -24,15 +24,18 @@ class GuildCard extends Component {
       //     <small className="text-muted">Leader : {guild.master}</small>
       //   </div>
       // </div> */}
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={guild.tag} />
-        <Card.Body>
-          <Card.Title>{guildName}</Card.Title>
-          <Card.Text>{guild.description}</Card.Text>
-          <Card.Text>members: {guild.members}</Card.Text>
-          <Button variant="primary">Profile</Button>
-        </Card.Body>
-      </Card>
+      <Link to={`/guild/${guild.id}`} className="card">
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={guild.tag} />
+          <Card.Body>
+            <Card.Title>{guildName}</Card.Title>
+            <Card.Text>{guild.description}</Card.Text>
+            <Card.Text>games: {guild.games}</Card.Text>
+            <Card.Text>members: {guild.members}</Card.Text>
+            <Button variant="primary">Profile</Button>
+          </Card.Body>
+        </Card>
+      </Link>
     );
   }
 }

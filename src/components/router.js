@@ -10,6 +10,7 @@ import PlayersList from "./PlayersList/PlayersList";
 import CreateGuildForm from "../forms/createGuild";
 import GameDetail from "./GameDetail/GameDetail";
 import GuildsList from "./GameDetail/GuildsList";
+import guildProfile from "./guildProfile";
 
 const Router = () => (
   <Switch>
@@ -21,6 +22,7 @@ const Router = () => (
     <Route path="/guild" component={GuildsList} />
     <Route path="/playerslist" component={PlayersList} />
     <Route path="/create/guild" component={CreateGuildForm} />
+    <Route path="/guildprofile/:guildid" component={guildProfile} />
     <Redirect from="/" to="/gamelist" />
   </Switch>
 );
