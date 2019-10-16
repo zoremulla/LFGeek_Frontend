@@ -19,10 +19,10 @@ const Router = () => (
     <Route path="/login" component={LoginForm} />
     <Route path="/register" component={SignupForm} />
     <Route path="/profile" component={UserProfile} />
+    <Route path="/guild/:guildid" component={GuildProfile} />
     <Route exact path="/guild" component={GuildsList} />
     <Route path="/playerslist" component={PlayersList} />
     <Route path="/create/guild" component={CreateGuildForm} />
-    <Route path="/guild/:guildid" component={GuildProfile} />
     <Redirect from="/" to="/gamelist" />
   </Switch>
 );
