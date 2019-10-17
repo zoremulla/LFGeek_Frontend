@@ -12,6 +12,7 @@ class UserProfile extends Component {
   componentDidMount() {
     if (authStore.user) {
       profileStore.fetchProfile();
+      console.log("ERROR", profileStore.fetchProfile());
     }
   }
 
@@ -34,8 +35,8 @@ class UserProfile extends Component {
           <img src={profile.image} className="img-responsive" alt="tag" />
         </div>
         <div>
-          <h6>{profile.cv}</h6>
-          <img src={profile.country} className="img-responsive" alt="flag" />
+          <h4>{profile.cv}</h4>
+          <text>{profile.country}</text>
         </div>
         <div>
           {" "}
