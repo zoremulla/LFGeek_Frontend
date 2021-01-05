@@ -10,7 +10,7 @@
     "@material-ui/icons": "^4.4.3",
     "@material-ui/styles": "^4.5.0",
     "@trendmicro/react-sidenav": "^0.4.5",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "jwt-decode": "^2.2.0",
     "material-ui": "^1.0.0-beta.47",
